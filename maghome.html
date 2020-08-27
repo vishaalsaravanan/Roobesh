@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+<head>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="./turn.js"></script>
+<style type="text/css">
+    body{
+        background-image: url(./background_image.jpg);
+        }
+    #magazine{
+        width:1210px;
+        height:820px;
+        margin-left: auto;
+        margin: auto;
+        margin-top: 3em;
+
+    }
+    #magazine .turn-page{
+        background-color: rgb(233,233,233);
+        background-size:100% 100%;
+    }
+    #magazine .turn-page-wrapper{
+       -moz-box-shadow: 10px 10px 5px #999;
+       -webkit-box-shadow: 10px 10px 5px #999;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+    }
+</style>
+</head>
+<body>
+    <div id="magazine">
+        <div style = "background-image: url(./cover.jpg);" class="hard"></div>
+        <div style = "background-image: url(./blank_page.jpg);" class="hard"></div>
+        <div style="background-image: url(./intro.jpg);"></div>
+        <div style="background-image: url(./a1.jpg);"></div>
+        <div style="background-image: url(./a1a.jpg);"></div>
+        <div style="background-image: url(./b1.jpg);"></div>
+        <div style="background-image: url(./b1a.jpg);"></div>
+        <div style="background-image: url(./c1.jpg);"></div>
+        <div style="background-image: url(./c1a.jpg);"></div>
+        <div style="background-image: url(./d1.jpg);"></div>
+        <div style="background-image: url(./d1a.jpg);"></div>
+        <div style="background-image: url(./e1.jpg);"></div>
+        <div style="background-image: url(./e1a.jpg);"></div>
+        <div style="background-image: url(./f1.jpg);"></div>
+        <div style="background-image: url(./f1a.jpg);"></div>
+        <div style="background-image: url(./g1.jpg);"></div>
+        <div style="background-image: url(./g1a.jpg);"></div>
+        <div style="background-image: url(./h1.jpg);"></div>
+        <div style="background-image: url(./h1a.jpg);"></div>
+        <div style="background-image: url(./i1.jpg);"></div>
+        <div style="background-image: url(./i1a.jpg);"></div>
+        <div style="background-image: url(./j1.jpg);"></div>
+        <div style="background-image: url(./j1a.jpg);"></div>
+        <div style="background-image: url(./k1.jpg);"></div>
+        <div style="background-image: url(./k1a.jpg);"></div>
+        <div style="background-image: url(./l1.jpg);"></div>
+        <div style="background-image: url(./l1a.jpg);"></div>
+        <div style = "background-image: url(./back_cover.jpg);"class="hard"></div>
+        <div class="hard"></div>
+     </div>
+    <script type="text/javascript">
+        $(window).ready(function() {
+            $('#magazine').turn({
+                                display: 'double',
+                                acceleration: true,
+                                gradients: !$.isTouch,
+                                elevation:50,
+                                when: {
+                                    turned: function(e, page) {
+                                         /*console.log('Current view: ', $(this).turn('view'));*/
+                                    }
+                                }
+                             });
+        });
+        $(window).bind('keydown', function(e){
+            if (e.keyCode==37)
+                $('#magazine').turn('previous');
+            else if (e.keyCode==39)
+                $('#magazine').turn('next');
+        });
+    </script>
+    </body>
+    </html>
